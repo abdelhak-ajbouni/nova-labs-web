@@ -1,38 +1,76 @@
+* {
+  box-sizing: border-box
+} 
+
 .App {
   text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  &-header {
+    background-color: #282c34;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .container {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    background-color: #f8f9fa;
   }
-  to {
-    transform: rotate(360deg);
+  .col-1 , 
+  .col-2 {
+    margin: 8px;
+    padding: 8px;
   }
+
+  .col-1 {
+    flex: 1;
+  }
+
+  .col-2 {
+    flex: 2;
+  }
+
+  .primary-btn {
+    display: block;
+    background: royalblue;
+    color: #fff;
+    border: 1px solid #6c757d;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 8px;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .react-calendar {
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    margin: 8px;
+    width: 100%;
+  }
+
+  .single-time-slot {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    margin: 8px;
+    padding: 8px;
+  }
+
+  .react-timerange-picker {
+    .react-timerange-picker__wrapper {
+      border: 1px solid #e6e6e6;
+      border-radius: 8px;
+      padding: 8px;
+      background: #fff;
+    }
+  }
+
 }
