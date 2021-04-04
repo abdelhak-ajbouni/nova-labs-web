@@ -1,11 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+$font-family: 'Nunito', sans-serif;
+$primary-color: royalblue;
+$success-color: #009900;
+$fail-color: #CC0000;
+$success-bg: #009900;
+$fail-bg: #CC0000;
+$bg-color-1: #f8f9fa;
+
 * {
-  box-sizing: border-box
-} 
+  box-sizing: border-box;
+  font-family: $font-family;
+}
 
 .App {
   text-align: center;
-
-
   &-header {
     background-color: #282c34;
     min-height: 100px;
@@ -16,61 +25,122 @@
     font-size: calc(10px + 2vmin);
     color: white;
   }
+}
 
-  .container {
-    max-width: 1000px;
-    margin: auto;
-    display: flex;
-    background-color: #f8f9fa;
-  }
-  .col-1 , 
-  .col-2 {
-    margin: 8px;
-    padding: 8px;
+.col-1,
+.col-2,
+.notice,
+.primary-btn,
+.single-time-slot{
+  margin: 8px;
+  padding: 8px;
+}
+
+.col-1 {
+  flex: 1;
+}
+
+.col-2 {
+  flex: 2;
+}
+
+.primary-btn {
+  display: block;
+  background: royalblue;
+  color: #fff;
+  border: 1px solid #6c757d;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.App .react-calendar {
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  margin: 8px;
+  width: 100%;
+}
+
+.single-time-slot {
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &-booked {
+    float: right;
   }
 
-  .col-1 {
-    flex: 1;
+  &-request-count {
+    float: right;
+    height: 22px;
+    width: 22px;
+    color: white;
+    border-radius: 50%;
   }
 
-  .col-2 {
-    flex: 2;
+  &-index {
+    float: left;
   }
+}
 
-  .primary-btn {
-    display: block;
-    background: royalblue;
-    color: #fff;
-    border: 1px solid #6c757d;
-    border-radius: 8px;
-    padding: 8px;
-    margin: 8px;
-    width: 100%;
-    cursor: pointer;
-  }
-
-  .react-calendar {
+.react-timerange-picker {
+  .react-timerange-picker__wrapper {
     border: 1px solid #e6e6e6;
     border-radius: 8px;
-    margin: 8px;
-    width: 100%;
-  }
-
-  .single-time-slot {
-    background-color: #fff;
-    border: 1px solid #e6e6e6;
-    border-radius: 8px;
-    margin: 8px;
     padding: 8px;
+    background: #fff;
   }
+}
 
-  .react-timerange-picker {
-    .react-timerange-picker__wrapper {
-      border: 1px solid #e6e6e6;
-      border-radius: 8px;
-      padding: 8px;
-      background: #fff;
-    }
-  }
+.appointment-requests {
+  border-radius: 5px;
+}
 
+/////////////
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.mp-8 {
+  margin: 8px !important;
+  padding: 8px !important;
+}
+
+.ptb-50 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.ptb-70 {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.ptb-100 {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.bg-color-1 {
+  background-color: $bg-color-1;
+}
+
+.color-success {
+  color: $success-color;
+}
+
+.bg-success {
+  color: white;
+  background-color: $success-bg;
+}
+
+
+.bg-fail {
+  background-color: $fail-bg;
 }
