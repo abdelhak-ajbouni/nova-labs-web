@@ -1,4 +1,18 @@
+import axios from './axiosConfigs'
 
-const getTimeSlots = (date) => {return [{start: '9:00', end: '10:00'},{start: '10:00', end: '10:00'},{start: '19:00', end: '10:00'}]}
+const addTimeSlotToSeller = (sellerId, body) => {
+   return axios.post(`sellers/${sellerId}/timeslots`, body)
+}
 
-export { getTimeSlots };
+const getSellerById = (sellerId, date) => {
+    return axios.get(`sellers/${sellerId}`, {
+        params: {
+          date: date
+        }
+      })
+}
+
+export { 
+    addTimeSlotToSeller,
+    getSellerById
+}
