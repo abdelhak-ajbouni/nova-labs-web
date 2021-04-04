@@ -1,25 +1,35 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { get } from 'lodash'
 
-import { getTimeSlots } from 'libs/apis'
+const TimeSlots = ({ data, isLoading, error, onClickAdd, onClickSlot }) => {
+    const slots = get(data, 'data.timeSlots', [])
 
-const TimeSlots = ({date = null}) => {
-    // const [loading, setLoading] = useState(false)
-    const [slots, setSlots] = useState([])
-
-    useEffect(() => {
-        (async function() {
-            const response = await getTimeSlots(date) 
-            setSlots(response);
-        })()
-    }, [date]);
-
-    const renderTimeSlots = () => {
-       return slots.map(slot => (<div className='single-time-slot'>{slot.start}</div>))
+    const renderSingleSlot = (index, { start, end, isBooked, appointmentRequests }) => {
+        return (<div className='single-time-slot' onClick={() => { onClickSlot({ start, end, isBooked })}} >
+            <b className='single-time-slot-index'>#{index + 1}</b>
+            <div><span>{start}</span> - <span>{end}</span></div>
+            {
+                isBooked 
+                    ? <span className='single-time-slot-booked color-success'>booked</span>
+                    : appointmentRequests.length > 0 && <span className='single-time-slot-request-count bg-fail'>{appointmentRequests.length}</span>
+            }
+            
+        </div>)
     }
+
+    if (isLoading) return 'Loading...'
+ 
+    if (error) return 'An error has occurred: ' + error.message
 
     return (
         <div className='time-slots'>
-            {date ? renderTimeSlots() : 'chose a date from the calender'}
+            <button className='primary-btn' onClick={onClickAdd}> Add New Time Slot </button>
+            <div className='time-slots'>
+                {slots.length === 0 && <p> no time slots to show in this day </p>}
+                {slots.map((slot, index) => {
+                    return renderSingleSlot(index, slot)
+                })}
+            </div>
         </div>
     )
 }
