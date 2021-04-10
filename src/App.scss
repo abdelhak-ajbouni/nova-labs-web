@@ -1,39 +1,106 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 
 $font-family: 'Nunito', sans-serif;
-$primary-color: royalblue;
-$success-color: #009900;
-$fail-color: #CC0000;
-$success-bg: #009900;
-$fail-bg: #CC0000;
-$bg-color-1: #f8f9fa;
+$color-primary: #84a59d;
+$color-success: #009900;
+$color-fail: #CC0000;
+$bg-success: #121f12;
+$bg-fail: #CC0000;
+$bg-primary: #f8f8f8;
 
+////////////// App
 * {
   box-sizing: border-box;
   font-family: $font-family;
 }
 
+body {
+  background-color: $bg-primary;
+}
+
 .App {
   text-align: center;
   &-header {
-    background-color: #282c34;
-    min-height: 100px;
+    background-color: $color-primary;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
+    justify-content: start;
+    font-size: calc(2vmin);
     color: white;
+    padding: 0 50px;
   }
 }
 
 .col-1,
 .col-2,
 .notice,
-.primary-btn,
 .single-time-slot{
   margin: 8px;
   padding: 8px;
+}
+
+.App .react-calendar {
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  margin: 8px;
+  width: 100%;
+}
+
+///////////// Home
+
+.single-time-slot {
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+
+  &-request-count {
+    height: 22px;
+    width: 22px;
+    color: white;
+    border-radius: 50%;
+  }
+}
+
+.react-timerange-picker {
+  .react-timerange-picker__wrapper {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 8px;
+    background: #fff;
+  }
+}
+
+.appointment-requests {
+  border-radius: 5px;
+}
+
+///////////// Login
+
+.login {
+
+  .login-input {
+    width: 350px;
+    margin: 16px auto;
+    padding: 12px 16px;
+  }
+  .login-btn {
+    width: 150px;
+    margin: auto;
+  }
+}
+
+/////////////
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.flex {
+  display: flex;
 }
 
 .col-1 {
@@ -46,65 +113,20 @@ $bg-color-1: #f8f9fa;
 
 .primary-btn {
   display: block;
-  background: royalblue;
+  background: $color-primary;
   color: #fff;
-  border: 1px solid #6c757d;
-  border-radius: 8px;
+  border: 1px solid #eee;
+  border-radius: 50px;
   cursor: pointer;
-}
-
-.App .react-calendar {
-  border: 1px solid #e6e6e6;
-  border-radius: 8px;
+  padding: 8px;
   margin: 8px;
-  width: 100%;
 }
 
-.single-time-slot {
-  background-color: #fff;
-  border: 1px solid #e6e6e6;
-  border-radius: 8px;
-  cursor: pointer;
-
-  &-booked {
-    float: right;
-  }
-
-  &-request-count {
-    float: right;
-    height: 22px;
-    width: 22px;
-    color: white;
-    border-radius: 50%;
-  }
-
-  &-index {
-    float: left;
-  }
-}
-
-.react-timerange-picker {
-  .react-timerange-picker__wrapper {
-    border: 1px solid #e6e6e6;
-    border-radius: 8px;
-    padding: 8px;
-    background: #fff;
-  }
-}
-
-.appointment-requests {
-  border-radius: 5px;
-}
-
-/////////////
-
-.container {
-  max-width: 1000px;
-  margin: auto;
-}
-
-.flex {
-  display: flex;
+.input {
+  border-radius: 50px;
+  border: 1px solid #eee;
+  padding: 8px 16px;
+  margin: 16px;
 }
 
 .mp-8 {
@@ -128,19 +150,19 @@ $bg-color-1: #f8f9fa;
 }
 
 .bg-color-1 {
-  background-color: $bg-color-1;
+  background-color: $bg-primary;
 }
 
 .color-success {
-  color: $success-color;
+  color: $color-success;
 }
 
 .bg-success {
   color: white;
-  background-color: $success-bg;
+  background-color: $color-primary;
 }
 
 
 .bg-fail {
-  background-color: $fail-bg;
+  background-color: $bg-fail;
 }
