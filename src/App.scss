@@ -27,6 +27,8 @@ body {
     color: white;
     padding: 0 50px;
   }
+
+
 }
 
 .col-1,
@@ -59,11 +61,13 @@ body {
     width: 22px;
     color: white;
     border-radius: 50%;
+    font-weight: bold;
   }
 
   &-index {
     margin-right: 8px;
   }
+
 }
 
 .react-timerange-picker {
@@ -77,6 +81,15 @@ body {
 
 .appointment-requests {
   border-radius: 5px;
+}
+
+.new-time-slot {
+  .MuiFormControl-root {
+    margin: 25px 25px 15px 0;
+  }
+  .MuiOutlinedInput-root {
+    border-radius: 50px;
+  }
 }
 
 ///////////// Login
@@ -120,7 +133,7 @@ body {
   border: 1px solid #eee;
   border-radius: 50px;
   cursor: pointer;
-  padding: 8px;
+  padding: 8px 16px;
   margin: 8px;
 }
 

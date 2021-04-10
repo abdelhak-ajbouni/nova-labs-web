@@ -35,13 +35,14 @@ const AppointmentRequests = ({ sellerId, timeSlotId, date, timeSlot }) => {
 
   return (
     <div className='appointment-requests'>
-      <div className='container ptb-100'>
+      <div className='container ptb-70'>
         <h3> Appointment Requests for {readableDate}: {timeSlot[0]} - {timeSlot[1]} </h3>
+        <hr />
         <List>
           {requests.length === 0 && <p> no appointment requests to show in this time slots </p>}
           {
             requests.map(({ _id, requestedBy, isAccepted }) => (
-              <ListItem className='bg-color-1 mp-8' key={_id} autoFocus>
+              <ListItem className='bg-color-1' key={_id} autoFocus>
                 <ListItemText primary={requestedBy} />
                 <button className='primary-btn bg-success' onClick={() => mutateUpdateRequest({requestId: _id, isAccepted: true })}>{isAccepted ? 'reject' : 'accept'}</button>
               </ListItem>

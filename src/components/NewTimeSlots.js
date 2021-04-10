@@ -8,11 +8,12 @@ const NewTimeSlots = ({ date, onSubmit }) => {
 
     return (
         <div className='new-time-slot'>
-            <div className='container ptb-100'>
+            <div className='container ptb-70'>
                 <h2>Add New Time Slot in {readableDate}</h2>
+                <hr />
                 <TextField
                     id="start-time"
-                    className='mp-8'
+                    className=''
                     label="Start Time"
                     type="time"
                     value={timeRange[0]}
@@ -27,7 +28,7 @@ const NewTimeSlots = ({ date, onSubmit }) => {
                 />
                 <TextField
                     id="end-time"
-                    className='mp-8'
+                    className=''
                     label="End Time"
                     type="time"
                     value={timeRange[1]}
