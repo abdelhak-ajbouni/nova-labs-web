@@ -4,8 +4,6 @@ $font-family: 'Nunito', sans-serif;
 $color-primary: #84a59d;
 $color-success: #009900;
 $color-fail: #CC0000;
-$bg-success: #121f12;
-$bg-fail: #CC0000;
 $bg-primary: #f8f8f8;
 
 ////////////// App
@@ -25,7 +23,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: start;
-    font-size: calc(2vmin);
+    font-size: 12px;
     color: white;
     padding: 0 50px;
   }
@@ -61,6 +59,10 @@ body {
     width: 22px;
     color: white;
     border-radius: 50%;
+  }
+
+  &-index {
+    margin-right: 8px;
   }
 }
 
@@ -164,5 +166,5 @@ body {
 
 
 .bg-fail {
-  background-color: $bg-fail;
+  background-color: $color-fail;
 }

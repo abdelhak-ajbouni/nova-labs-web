@@ -16,6 +16,10 @@ const getSellerById = (sellerId, date) => {
       })
 }
 
+const updateTimeSlot = (sellerId, timeslotId, body) => {
+  return axios.put(`sellers/${sellerId}/timeslots/${timeslotId}`, body)
+}
+
 const getRequests = (sellerId, timeslotId) => {
   return axios.get(`sellers/${sellerId}/timeslots/${timeslotId}/requests`)
 }
@@ -27,6 +31,7 @@ const updateRequest = (sellerId, timeslotId, requestId, body) => {
 export { 
     addTimeSlotToSeller,
     getSellerById,
+    updateTimeSlot,
     getRequests,
     addSeller,  
     updateRequest

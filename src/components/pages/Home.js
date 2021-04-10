@@ -3,6 +3,7 @@ import Calendar from 'react-calendar';
 import { useMutation, useQuery } from 'react-query'
 import toast, { Toaster } from 'react-hot-toast';
 import Drawer from '@material-ui/core/Drawer';
+import moment from 'moment'
 
 import TimeSlots from 'components/TimeSlots'
 import NewTimeSlots from 'components/NewTimeSlots'
@@ -20,7 +21,7 @@ function Home({location}) {
   const { isFetching, error, refetch, data } = useQuery(["seller", sellerId, date],
     () => getSellerById(sellerId, date)
   )
-  const { mutate } = useMutation(newTimeSlot => addTimeSlotToSeller(sellerId, newTimeSlot), {
+  const { mutate } = useMutation(newTimeSlot =>  addTimeSlotToSeller(sellerId, {...newTimeSlot, date: moment(date).add(1, 'days').toISOString()}), {
     onSuccess: () => {
       setShowDrawer(null)
       refetch()
@@ -34,7 +35,7 @@ function Home({location}) {
 
   return (
     <div className="home">
-      <div className='container flex bg-color-1'>
+      <div className='container flex'>
         <div className='col-1'>
           <Calendar
             onChange={setDate}

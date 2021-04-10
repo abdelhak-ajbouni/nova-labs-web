@@ -43,7 +43,7 @@ const NewTimeSlots = ({ date, onSubmit }) => {
                 <button 
                     className='primary-btn' 
                     onClick={() => {
-                        onSubmit({date, start: timeRange[0], end: timeRange[1]})
+                        onSubmit({start: timeRange[0], end: timeRange[1]})
                     }}
                     > 
                         Submit 
