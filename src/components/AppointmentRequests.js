@@ -9,13 +9,14 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import { getRequests, updateRequest, updateTimeSlot } from 'libs/apis'
 
-const AppointmentRequests = ({ sellerId, timeSlotId, date, timeSlot }) => {
+const AppointmentRequests = ({ sellerId, timeSlotId, date, timeSlot, onRefetch }) => {
   const { refetch, data } = useQuery(["request", sellerId, timeSlotId],
     () => getRequests(sellerId, timeSlotId)
   )
   const { mutate: mutateUpdateTimeSlot } = useMutation(() => updateTimeSlot(sellerId, timeSlotId, { isBooked: true }), {
     onSuccess: () => {
       refetch()
+      onRefetch()
       toast.success('Appointment Request Updated.')
     },
     onError: () => {
