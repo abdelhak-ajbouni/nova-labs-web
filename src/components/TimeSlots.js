@@ -19,8 +19,6 @@ const TimeSlots = ({ data, isLoading, error, onClickAdd, onClickSlot }) => {
         )
     }
 
-    if (isLoading) return 'Loading...'
-
     if (error) return 'An error has occurred: ' + error.message
 
     return (

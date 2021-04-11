@@ -54,7 +54,7 @@ function Home({location}) {
                   onClickAdd={() => setShowDrawer('addView')} 
                   onClickSlot={(currentSlot) => { setShowDrawer('appointmentView'); setCurrentSlot(currentSlot) }} 
                 />
-              : <div className='notice'>choose a date from the calendar</div>
+              : <div className='notice'> &#9754; choose a date from the calendar </div>
           }
         </div>
       </div>
