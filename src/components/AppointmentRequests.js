@@ -16,7 +16,7 @@ const AppointmentRequests = ({ sellerId, timeSlotId, date, timeSlot }) => {
   const { mutate: mutateUpdateTimeSlot } = useMutation(() => updateTimeSlot(sellerId, timeSlotId, { isBooked: true }), {
     onSuccess: () => {
       refetch()
-      toast.success('Appointment Request Accepted.')
+      toast.success('Appointment Request Updated.')
     },
     onError: () => {
       toast.error('Something Went Wrong.')
@@ -44,7 +44,7 @@ const AppointmentRequests = ({ sellerId, timeSlotId, date, timeSlot }) => {
             requests.map(({ _id, requestedBy, isAccepted }) => (
               <ListItem className='bg-color-1' key={_id} autoFocus>
                 <ListItemText primary={requestedBy} />
-                <button className='primary-btn bg-success' onClick={() => mutateUpdateRequest({requestId: _id, isAccepted: true })}>{isAccepted ? 'reject' : 'accept'}</button>
+                <button className='primary-btn bg-success' onClick={() => mutateUpdateRequest({requestId: _id, isAccepted: !isAccepted })}>{isAccepted ? 'reject' : 'accept'}</button>
               </ListItem>
             ))
           }
